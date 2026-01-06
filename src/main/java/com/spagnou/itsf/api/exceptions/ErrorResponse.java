@@ -2,9 +2,15 @@ package com.spagnou.itsf.api.exceptions;
 
 import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  * Standard error response structure for API exceptions.
  */
+@Data
+@NoArgsConstructor
 public class ErrorResponse {
     
     private LocalDateTime timestamp;
@@ -27,26 +33,5 @@ public class ErrorResponse {
         this.error = error;
         this.message = message;
         this.path = path;
-    }
-    
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-    
-    public int getStatus() {
-        return status;
-    }
-    
-    public String getError() {
-        return error;
-    }
-    
-    public String getMessage() {
-        return message;
-    }
-    
-    public String getPath() {
-        return path;
     }
 }

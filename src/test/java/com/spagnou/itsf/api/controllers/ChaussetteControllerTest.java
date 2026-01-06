@@ -13,7 +13,6 @@ import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.spagnou.itsf.api.controllers.ChaussetteController;
 import com.spagnou.itsf.api.exceptions.InvalidRangeException;
 import com.spagnou.itsf.api.services.ChaussetteService;
 
@@ -37,7 +36,9 @@ class ChaussetteControllerTest {
             .thenReturn(expectedResult);
         
         // When & Then
-        mockMvc.perform(get("/api/exercices/chaussettes"))
+        mockMvc.perform(get("/api/exercices/chaussettes")
+	        .param("start", "0")
+	        .param("end", "100"))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$").isArray())
             .andExpect(jsonPath("$.length()").value(3))
