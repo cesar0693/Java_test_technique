@@ -27,13 +27,13 @@ public class ChaussetteController {
      * 
      * Endpoint: GET /api/exercices/chaussettes
      *
-     * @param start the starting index (default: 0)
+     * @param start the starting index (default: 1)
      * @param end the ending index(default: 100)
      * @return a list of strings representing the algorithm results
      */
     @GetMapping("/chaussettes")
     public List<String> getChaussettes(
-            @RequestParam(defaultValue = "0") int start,
+            @RequestParam(defaultValue = "1") int start,
             @RequestParam(defaultValue = "100") int end) {
         
         return chaussetteService.getListChaussettes(start, end);
