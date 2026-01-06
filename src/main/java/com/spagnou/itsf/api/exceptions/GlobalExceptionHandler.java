@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
         
         ErrorResponse errorResponse = new ErrorResponse(
             HttpStatus.BAD_REQUEST.value(),
-            "Bad Request",
+            HttpStatus.BAD_REQUEST.getReasonPhrase(),
             ex.getMessage(),
             request.getDescription(false).replace("uri=", "")
         );
@@ -51,7 +51,7 @@ public class GlobalExceptionHandler {
         
         ErrorResponse errorResponse = new ErrorResponse(
             HttpStatus.INTERNAL_SERVER_ERROR.value(),
-            "Internal Server Error",
+            HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(),
             "An unexpected error occurred",
             request.getDescription(false)
         );

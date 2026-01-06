@@ -11,7 +11,7 @@ import com.spagnou.itsf.api.exceptions.InvalidRangeException;
  * Service that handles ChaussetteSales.
  *
  * This service implements an algorithm that generates
- * a list of strings based on some rules.s
+ * a list of strings based on some rules
  *
  */
 @Service
@@ -44,7 +44,8 @@ public class ChaussetteService {
             if (i % 5 == 0) {
                 result += "Sales";
             }
-            results.add("".equals(result) ? String.valueOf(i) : result);
+            result = "".equals(result) ? String.valueOf(i) : result;
+            results.add(result);
         }   
         return results;
     }
